@@ -13,25 +13,388 @@
 
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #f0f2f5;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      background: #f5f6f8;
       min-height: 100vh;
+      color: #1a1a1a;
     }
 
+    /* ── Top Nav Bar ── */
+    .navbar {
+      background: white;
+      border-bottom: 1px solid #e5e7eb;
+      padding: 0 32px;
+      display: flex;
+      align-items: center;
+      height: 56px;
+      gap: 32px;
+    }
+
+    .navbar .logo {
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: #1a1a1a;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .navbar .logo .logo-icon {
+      width: 32px;
+      height: 32px;
+      background: #2563eb;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 800;
+      font-size: 0.75rem;
+    }
+
+    .navbar nav {
+      display: flex;
+      gap: 4px;
+      height: 100%;
+    }
+
+    .navbar nav a {
+      text-decoration: none;
+      color: #6b7280;
+      font-size: 0.9rem;
+      font-weight: 500;
+      padding: 0 12px;
+      display: flex;
+      align-items: center;
+      height: 100%;
+      border-bottom: 2px solid transparent;
+      transition: color 0.15s, border-color 0.15s;
+    }
+
+    .navbar nav a:hover {
+      color: #1a1a1a;
+    }
+
+    .navbar nav a.active {
+      color: #1a1a1a;
+      border-bottom-color: #2563eb;
+    }
+
+    /* ── Page Layout ── */
+    .page {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 32px 24px;
+    }
+
+    .page-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .page-header h1 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #1a1a1a;
+    }
+
+    .page-header .icon {
+      width: 28px;
+      height: 28px;
+      background: #2563eb;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 0.8rem;
+    }
+
+    .page-subtitle {
+      color: #6b7280;
+      font-size: 0.9rem;
+      margin-bottom: 28px;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 24px;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .tabs a {
+      text-decoration: none;
+      color: #6b7280;
+      font-size: 0.9rem;
+      font-weight: 500;
+      padding: 8px 12px;
+      border-bottom: 2px solid transparent;
+      transition: color 0.15s, border-color 0.15s;
+    }
+
+    .tabs a:hover {
+      color: #1a1a1a;
+    }
+
+    .tabs a.active {
+      color: #1a1a1a;
+      border-bottom-color: #2563eb;
+    }
+
+    /* ── Two-Column Grid ── */
+    .grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 24px;
+    }
+
+    @media (max-width: 700px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ── Cards ── */
     .card {
       background: white;
       border-radius: 12px;
-      padding: 40px;
-      width: 400px;
-      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+      padding: 24px;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
     }
 
-    h1 {
-      font-size: 1.4rem;
+    .card h2 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 20px;
       color: #1a1a1a;
-      margin-bottom: 24px;
+    }
+
+    /* ── Badge Items ── */
+    .badge-item {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      padding: 16px 0;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .badge-item:last-child {
+      border-bottom: none;
+    }
+
+    .badge-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.82rem;
+      font-weight: 600;
+    }
+
+    .badge-label.blue {
+      background: #eff6ff;
+      color: #2563eb;
+    }
+
+    .badge-label.green {
+      background: #f0fdf4;
+      color: #16a34a;
+    }
+
+    .badge-label.locked {
+      background: #f3f4f6;
+      color: #9ca3af;
+    }
+
+    .badge-desc {
+      color: #6b7280;
+      font-size: 0.85rem;
+      margin-top: 6px;
+    }
+
+    /* ── Buttons ── */
+    .btn-primary {
+      padding: 8px 20px;
+      background: #2563eb;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+
+    .btn-primary:hover {
+      background: #1d4ed8;
+    }
+
+    .btn-text {
+      background: none;
+      border: none;
+      color: #2563eb;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      padding: 0;
+    }
+
+    .btn-text:hover {
+      text-decoration: underline;
+    }
+
+    .btn-locked {
+      padding: 6px 14px;
+      background: #f3f4f6;
+      color: #9ca3af;
+      border: 1px solid #e5e7eb;
+      border-radius: 20px;
+      font-size: 0.82rem;
+      font-weight: 500;
+      cursor: default;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* ── Info Banner ── */
+    .info-banner {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 8px;
+      padding: 14px 16px;
+      font-size: 0.85rem;
+      color: #1e40af;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .info-banner .info-icon {
+      width: 20px;
+      height: 20px;
+      background: #2563eb;
+      border-radius: 50%;
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* ── Profile Card ── */
+    .profile-header {
+      text-align: center;
+      margin-bottom: 16px;
+    }
+
+    .avatar-row {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #e5e7eb;
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 3px 10px;
+      border-radius: 12px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    .status-badge.unverified {
+      background: #fef2f2;
+      color: #dc2626;
+    }
+
+    .status-badge.verified {
+      background: #f0fdf4;
+      color: #16a34a;
+    }
+
+    .profile-note {
+      color: #9ca3af;
+      font-size: 0.8rem;
+      margin-top: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+    }
+
+    /* ── Verification List ── */
+    .section-label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #9ca3af;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      margin: 16px 0 8px;
+    }
+
+    .verify-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 0;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .verify-item:last-child {
+      border-bottom: none;
+    }
+
+    .verify-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.9rem;
+      color: #374151;
+    }
+
+    .verify-label .v-icon {
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #9ca3af;
+      font-size: 0.85rem;
+    }
+
+    .verify-value {
+      color: #9ca3af;
+      font-size: 0.85rem;
+    }
+
+    /* ── Input Section (Hello App) ── */
+    .input-section {
+      margin-top: 4px;
+    }
+
+    .input-section label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #374151;
+      margin-bottom: 8px;
+      display: block;
     }
 
     .input-row {
@@ -39,40 +402,27 @@
       gap: 8px;
     }
 
-    input {
+    input[type="text"] {
       flex: 1;
       padding: 10px 14px;
       border: 1.5px solid #d1d5db;
       border-radius: 8px;
-      font-size: 1rem;
+      font-size: 0.95rem;
       outline: none;
       transition: border-color 0.15s;
+      font-family: inherit;
     }
 
-    input:focus {
-      border-color: #6366f1;
+    input[type="text"]:focus {
+      border-color: #2563eb;
     }
 
-    button {
-      padding: 10px 18px;
-      background: #6366f1;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: background 0.15s;
-    }
-
-    button:hover {
-      background: #4f46e5;
-    }
-
+    /* ── Response Area ── */
     .response {
-      margin-top: 20px;
+      margin-top: 16px;
       padding: 14px;
       border-radius: 8px;
-      font-size: 1rem;
+      font-size: 0.95rem;
       min-height: 48px;
       background: #f9fafb;
       border: 1.5px solid #e5e7eb;
@@ -94,18 +444,125 @@
   </style>
 </head>
 <body>
-  <div class="card">
-    <h1>Hello App</h1>
-    <div class="input-row">
-      <input type="text" id="input" placeholder='Type "hello"...' autofocus />
-      <button onclick="handleSubmit()">Send</button>
+
+  <!-- ── Top Navigation ── -->
+  <div class="navbar">
+    <div class="logo">
+      <div class="logo-icon">H</div>
+      Hello App
     </div>
-    <div class="response" id="response"></div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#" class="active">Dashboard</a>
+      <a href="#">Settings</a>
+    </nav>
+  </div>
+
+  <!-- ── Page Content ── -->
+  <div class="page">
+    <div class="page-header">
+      <div class="icon">&#9733;</div>
+      <h1>Dashboard</h1>
+    </div>
+    <div class="tabs">
+      <a href="#" class="active">My App</a>
+      <a href="#">History</a>
+    </div>
+    <p class="page-subtitle">Send a message and get a response from the app</p>
+
+    <div class="grid">
+
+      <!-- ── Left Column: Input Card ── -->
+      <div>
+        <div class="card">
+          <h2>Send Message</h2>
+
+          <div class="badge-item">
+            <div>
+              <span class="badge-label blue">&#9993; Active</span>
+              <p class="badge-desc">Type "hello" to receive a greeting</p>
+            </div>
+            <button class="btn-primary" onclick="handleSubmit()">Send</button>
+          </div>
+
+          <div class="input-section">
+            <label for="input">Your message</label>
+            <div class="input-row">
+              <input type="text" id="input" placeholder='Type "hello"...' autofocus />
+            </div>
+          </div>
+
+          <div class="badge-item">
+            <div>
+              <span class="badge-label green">&#10003; Response</span>
+              <div class="response" id="response"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Right Column: Status Card ── -->
+      <div>
+        <div class="card">
+          <h2>Your Status</h2>
+
+          <div class="profile-header">
+            <div class="avatar-row">
+              <div class="avatar"></div>
+              <div class="avatar"></div>
+              <div class="avatar"></div>
+            </div>
+            <span class="status-badge unverified">&#9679; Guest</span>
+            <p class="profile-note">&#128274; Sign in to save your history</p>
+          </div>
+
+          <div class="info-banner">
+            <span class="info-icon">i</span>
+            <span>Responses are generated locally in your browser. No data is sent to any server.</span>
+          </div>
+
+          <div class="section-label">App Details</div>
+
+          <div class="verify-item">
+            <span class="verify-label">
+              <span class="v-icon">&#9993;</span> Input
+            </span>
+            <button class="btn-text" id="status-input">-</button>
+          </div>
+
+          <div class="verify-item">
+            <span class="verify-label">
+              <span class="v-icon">&#10003;</span> Output
+            </span>
+            <span class="verify-value" id="status-output">-</span>
+          </div>
+
+          <div class="verify-item">
+            <span class="verify-label">
+              <span class="v-icon">&#9881;</span> Version
+            </span>
+            <span class="verify-value">1.0.0</span>
+          </div>
+
+          <div class="section-label">Supported Commands</div>
+
+          <div class="verify-item">
+            <span class="verify-label">
+              <span class="v-icon">&#128075;</span> hello
+            </span>
+            <span class="verify-value">Returns greeting</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
   </div>
 
   <script>
     const input = document.getElementById("input");
     const response = document.getElementById("response");
+    const statusInput = document.getElementById("status-input");
+    const statusOutput = document.getElementById("status-output");
 
     input.addEventListener("keydown", (e) => {
       if (e.key === "Enter") handleSubmit();
@@ -113,16 +570,20 @@
 
     function handleSubmit() {
       const value = input.value.trim().toLowerCase();
+      statusInput.textContent = input.value.trim() || "-";
 
       if (value === "hello") {
         response.textContent = "Bye!";
         response.className = "response success";
+        statusOutput.textContent = "Hello, World!";
       } else if (value === "") {
         response.textContent = "";
         response.className = "response";
+        statusOutput.textContent = "-";
       } else {
         response.textContent = `Unknown input: "${input.value.trim()}"`;
         response.className = "response error";
+        statusOutput.textContent = "Error";
       }
     }
   </script>
